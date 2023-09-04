@@ -16,24 +16,24 @@ export const style = StyleSheet.create({
     fontSize: 18,
   },
 
-  button: {
-    textAlign: 'center',
-    color: 'white',
-    borderRadius: 5,
-    padding: 10,
-    fontSize: 15,
-  },
+  // button: {
+  //   textAlign: 'center',
+  //   color: 'white',
+  //   borderRadius: 5,
+  //   padding: 10,
+  //   fontSize: 15,
+  // },
 
-  cyan: {
-    backgroundColor: '#2aa198',
-  },
-  blue: {
-    backgroundColor: '#268bd2',
-  },
-  magenta: {
-    backgroundColor: '#d33682',
-  },
-  orange: {
-    backgroundColor: '#cb4b16',
-  },
+  // cyan: {
+  //   backgroundColor: '#2aa198',
+  // },
+  // blue: {
+  //   backgroundColor: '#268bd2',
+  // },
+  // magenta: {
+  //   backgroundColor: '#d33682',
+  // },
+  // orange: {
+  //   backgroundColor: '#cb4b16',
+  // },
 })
