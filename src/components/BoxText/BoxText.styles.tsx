@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native'
 
-export const BoxTextContainer = (color: string) => {
+type OptionalBoolean = boolean | undefined
+
+export const BoxTextContainer = (
+  color: string,
+  renderBlackText: OptionalBoolean,
+) => {
   // Use a regular expression pattern to validate the color string
   const validColorPattern = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
 
@@ -17,7 +22,7 @@ export const BoxTextContainer = (color: string) => {
 
     TextContainer: {
       textAlign: 'center',
-      color: 'white',
+      color: renderBlackText === true ? 'black' : 'white',
       fontSize: 15,
     },
   })
