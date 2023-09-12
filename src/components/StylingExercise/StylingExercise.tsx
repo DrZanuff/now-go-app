@@ -8,7 +8,6 @@ import { BoxText } from '../BoxText'
 export function StylingExercise() {
   return (
     <View style={style.stylingExerciseContainer}>
-      <Text style={style.text}>Here are some boxes of different colours</Text>
       <FlatList
         data={COLORS}
         renderItem={({ item }) => (
@@ -20,6 +19,7 @@ export function StylingExercise() {
         )}
         keyExtractor={(item) => item.hexCode}
         ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+        ListHeaderComponent={<Text style={style.text}>Solarized</Text>}
       />
     </View>
   )
