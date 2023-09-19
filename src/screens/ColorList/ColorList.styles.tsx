@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 export const style = StyleSheet.create({
-  stylingExerciseContainer: {
+  ColorListContainer: {
     flex: 1,
     gap: 8,
     marginTop: 10,

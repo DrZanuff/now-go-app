@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 type OptionalBoolean = boolean | undefined
 
-export const BoxTextContainer = (
+export const ColorBoxContainer = (
   color: string,
   renderBlackText: OptionalBoolean,
 ) => {

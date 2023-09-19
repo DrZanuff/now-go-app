@@ -1,13 +1,13 @@
 import { Text, View } from 'react-native'
-import type { BoxTextTypes } from './BoxText.types'
-import { BoxTextContainer } from './BoxText.styles'
+import type { ColorBoxTypes } from './ColorBox.types'
+import { ColorBoxContainer } from './ColorBox.styles'
 
-export function BoxText({
+export function ColorBox({
   colorHex,
   colorName,
   renderBlackText,
-}: BoxTextTypes) {
-  const style = BoxTextContainer(colorHex, renderBlackText)
+}: ColorBoxTypes) {
+  const style = ColorBoxContainer(colorHex, renderBlackText)
 
   return (
     <View style={style.BoxContainer}>

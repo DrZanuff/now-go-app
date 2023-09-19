@@ -1,17 +1,17 @@
 import { View, Text, FlatList } from 'react-native'
-import { style } from './StylingExercise.styles'
+import { style } from './ColorList.styles'
 import { COLORS } from './colors'
 import { calculateLuminance } from '../../helpers/calculateLuminance'
 
-import { BoxText } from '../BoxText'
+import { ColorBox } from '../../components/ColorBox'
 
-export function StylingExercise() {
+export function ColorList() {
   return (
-    <View style={style.stylingExerciseContainer}>
+    <View style={style.ColorListContainer}>
       <FlatList
         data={COLORS}
         renderItem={({ item }) => (
-          <BoxText
+          <ColorBox
             colorHex={item.hexCode}
             colorName={item.colorName}
             renderBlackText={calculateLuminance(item.hexCode) > 0.5}

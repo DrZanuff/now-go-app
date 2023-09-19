@@ -1,40 +1,21 @@
-import { StatusBar } from 'expo-status-bar'
-import { useState, useCallback } from 'react'
-import { StyleSheet, View, Button } from 'react-native'
-import { Main } from './src/components/Main'
-import { StylingExercise } from './src/components/StylingExercise'
+import { SafeArea } from './src/components/SafeArea'
+import { NavigationContainer } from '@react-navigation/native'
+import { ColorList } from './src/screens/ColorList'
+import { Home } from './src/screens/Home'
+import { createStackNavigator } from '@react-navigation/stack'
+import type { RootStackParamList } from './src/screens/RootStackParamList.types'
 
-type PageType = 'main' | 'exercise'
+const Stack = createStackNavigator<RootStackParamList>()
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('main')
-
-  const handleChangePage = useCallback((page: PageType) => {
-    setCurrentPage(page)
-  }, [])
-
   return (
-    <View style={style.container}>
-      <View style={style.buttonsContianer}>
-        <Button title="Main" onPress={() => handleChangePage('main')} />
-        <Button title="Exercise" onPress={() => handleChangePage('exercise')} />
-      </View>
-      {currentPage === 'main' && <Main />}
-      {currentPage === 'exercise' && <StylingExercise />}
-      <StatusBar style="auto" />
-    </View>
+    <SafeArea>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="ColorList" component={ColorList} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeArea>
   )
 }
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 30,
-  },
-  buttonsContianer: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-})
