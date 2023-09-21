@@ -1,5 +1,9 @@
+import { Color } from '../colors/color.types'
+
+type StackRoutes = 'Home' | 'ColorList'
+
 export type RootStackParamList = {
-  Home: undefined
-  ColorList: undefined
-  // Define other screens and their params here
+  [key in StackRoutes]: key extends 'ColorList'
+    ? { paletteName: string; colors: Color[] }
+    : undefined
 }
