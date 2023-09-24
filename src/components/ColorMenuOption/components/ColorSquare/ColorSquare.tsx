@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import type { ColorSquareProps } from './ColorSquare.types'
 import { styleContainer } from './ColorSquare.styles'
 

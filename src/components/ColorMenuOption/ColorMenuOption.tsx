@@ -19,13 +19,10 @@ export function ColorMenuOption({
         <FlatList
           contentContainerStyle={style.ColorsContainer}
           horizontal
-          data={colorOption.colors}
-          renderItem={({ item, index }) => {
-            if (index < 5) {
-              return <ColorSquare backgroundColor={item.hexCode} />
-            }
-            return null
-          }}
+          data={colorOption.colors.slice(0, 5)}
+          renderItem={({ item }) => (
+            <ColorSquare backgroundColor={item.hexCode} />
+          )}
           keyExtractor={(item) => item.hexCode}
         />
       </View>

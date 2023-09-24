@@ -19,6 +19,7 @@ export const styleContainer = () => {
       flex: 1,
       gap: 6,
       height: 32,
+      flexDirection: 'row',
     },
   })
 }
