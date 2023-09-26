@@ -8,5 +8,5 @@ export const RAINBOW: ColorsOption = {
     { colorName: 'Green', hexCode: '#00FF00' },
     { colorName: 'Violet', hexCode: '#8B00FF' },
   ],
-  schemeName: 'Rainbow',
+  paletteName: 'Rainbow',
 }

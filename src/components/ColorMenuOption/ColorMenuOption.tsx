@@ -11,10 +11,10 @@ export function ColorMenuOption({
 
   return (
     <TouchableOpacity
-      onPress={() => navigate(colorOption.colors, colorOption.schemeName)}
+      onPress={() => navigate(colorOption.colors, colorOption.paletteName)}
     >
       <View style={style.ColorMenuOptionContainer}>
-        <Text style={style.ColorHeaderText}>{colorOption.schemeName}</Text>
+        <Text style={style.ColorHeaderText}>{colorOption.paletteName}</Text>
 
         <FlatList
           contentContainerStyle={style.ColorsContainer}

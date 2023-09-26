@@ -1,0 +1,1 @@
+export { fetchPalettes } from './fetchPalettes'

@@ -7,6 +7,7 @@ export const style = StyleSheet.create({
     marginTop: 10,
     width: '100%',
     padding: 15,
+    backgroundColor: 'white',
   },
 
   text: {

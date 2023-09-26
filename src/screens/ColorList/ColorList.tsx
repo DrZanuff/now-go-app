@@ -12,8 +12,6 @@ export function ColorList() {
   const colors = get(route.params, 'colors', []) as Color[]
   const paletteName = get(route.params, 'paletteName', '') as string
 
-  console.log('DBG', route.params)
-
   return (
     <View style={style.ColorListContainer}>
       <FlatList

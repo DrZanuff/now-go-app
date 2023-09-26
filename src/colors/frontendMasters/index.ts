@@ -8,5 +8,5 @@ export const FRONTEND_MASTERS: ColorsOption = {
     { colorName: 'White', hexCode: '#ffffff' },
     { colorName: 'Orange', hexCode: '#e66225' },
   ],
-  schemeName: 'Frontend Masters',
+  paletteName: 'Frontend Masters',
 }

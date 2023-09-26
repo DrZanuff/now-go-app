@@ -19,5 +19,5 @@ export const SOLARIZED: ColorsOption = {
     { colorName: 'Cyan', hexCode: '#2aa198' },
     { colorName: 'Green', hexCode: '#859900' },
   ],
-  schemeName: 'Solarized',
+  paletteName: 'Solarized',
 }
