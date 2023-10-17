@@ -1,16 +1,35 @@
-import { useCallback } from 'react'
-import { View, FlatList } from 'react-native'
+import { useCallback, useState, useEffect } from 'react'
+import {
+  View,
+  FlatList,
+  ActivityIndicator,
+  Text,
+  SafeAreaView,
+} from 'react-native'
 import { ColorMenuOption } from '../../components/ColorMenuOption'
-// import { colorArrayList } from '../../colors'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { colorPalletesContext } from '../../atoms'
 import { styleContainer } from './Home.styles'
 import type { NavigationProps, Color } from './Home.types'
+import { fetchPalettes } from '../../../requests/fetchPalettes'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export function Home({ navigation }: NavigationProps) {
   const style = styleContainer()
 
-  const colorOptions = useRecoilValue(colorPalletesContext)
+  const [colorOptions, setColorOptions] = useRecoilState(colorPalletesContext)
+  const [isRefreshing, setIsRefreshing] = useState<boolean>(false)
+
+  const handleFecthPalettes = useCallback(async () => {
+    const palletes = await fetchPalettes()
+    setColorOptions(palletes)
+    setIsRefreshing(false)
+  }, [])
+
+  const handleRefresh = useCallback(() => {
+    setIsRefreshing(true)
+    handleFecthPalettes()
+  }, [])
 
   const handleNavigation = useCallback(
     (colors: Color[], paletteName: string) => {
@@ -19,15 +38,41 @@ export function Home({ navigation }: NavigationProps) {
     [navigation],
   )
 
+  useEffect(() => {
+    handleFecthPalettes()
+  }, [])
+
   return (
     <View style={style.HomeContainer}>
-      <FlatList
-        data={colorOptions}
-        renderItem={({ item }) => (
-          <ColorMenuOption colorOption={item} navigate={handleNavigation} />
-        )}
-        keyExtractor={(item) => item.paletteName}
-      />
+      {colorOptions.length > 0 ? (
+        <FlatList
+          data={colorOptions}
+          renderItem={({ item }) => (
+            <ColorMenuOption colorOption={item} navigate={handleNavigation} />
+          )}
+          keyExtractor={(item) => item.paletteName}
+          refreshing={isRefreshing}
+          onRefresh={handleRefresh}
+          ListHeaderComponent={
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('AddNewPalette')
+              }}
+            >
+              <Text style={style.TextButton}>Add Color Palette</Text>
+            </TouchableOpacity>
+          }
+        />
+      ) : (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+          }}
+        >
+          <ActivityIndicator size="large" />
+        </View>
+      )}
     </View>
   )
 }
