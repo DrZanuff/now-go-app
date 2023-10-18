@@ -43,7 +43,7 @@ export const Main = () => {
           </RootStack.Group>
           <RootStack.Group>
             <RootStack.Screen
-              name="AddNewPalette"
+              name="Add New Palette"
               component={AddNewPaletteModal}
             />
           </RootStack.Group>

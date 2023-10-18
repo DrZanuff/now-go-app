@@ -18,11 +18,10 @@ export const ColorBoxContainer = (
       backgroundColor: color,
       borderRadius: 5,
       padding: 10,
-
-      shadowRadius: 3,
+      shadowRadius: 2,
       shadowOpacity: 0.3,
       shadowOffset: { width: 1, height: 3 },
-      elevation: 60,
+      elevation: 4,
     },
 
     TextContainer: {

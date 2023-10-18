@@ -50,7 +50,7 @@ export function Home({ navigation }: NavigationProps) {
           ListHeaderComponent={
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('AddNewPalette')
+                navigation.navigate('Add New Palette')
               }}
             >
               <Text style={style.TextButton}>Add Color Palette</Text>

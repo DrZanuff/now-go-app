@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { Text, View, FlatList, Button, Alert } from 'react-native'
-import type { AddNewPaletteModalProps } from './AddNewPaletteModal.types'
+import type { NavigationProps } from './AddNewPaletteModal.types'
 import { styleContainer } from './AddNewPaletteModal.styles'
 import { TextInput } from 'react-native-gesture-handler'
 import { COLORS } from './helpers/colors'
@@ -9,7 +9,13 @@ import { ColorField } from './components/ColorField'
 import { useSetRecoilState } from 'recoil'
 import { colorPalletesContext } from '../../atoms'
 
-export function AddNewPaletteModal({ value }: AddNewPaletteModalProps) {
+const Separator = () => {
+  const style = styleContainer()
+
+  return <View style={style.Separator} />
+}
+
+export function AddNewPaletteModal({ navigation }: NavigationProps) {
   const style = styleContainer()
 
   const setColorPalletes = useSetRecoilState(colorPalletesContext)
@@ -45,12 +51,18 @@ export function AddNewPaletteModal({ value }: AddNewPaletteModalProps) {
         },
       ]
     })
+
+    navigation.goBack()
   }, [formColors, paletteName])
 
   return (
     <View style={style.AddNewPaletteModalContainer}>
       <Text>Name of your color Palette</Text>
-      <TextInput onChangeText={setPaletteName} value={paletteName} />
+      <TextInput
+        style={style.Text}
+        onChangeText={setPaletteName}
+        value={paletteName}
+      />
       <FlatList
         data={formColors}
         keyExtractor={(item) => item.color.colorName}
@@ -61,6 +73,7 @@ export function AddNewPaletteModal({ value }: AddNewPaletteModalProps) {
             setValue={setFormColors}
           />
         )}
+        ItemSeparatorComponent={Separator}
       />
 
       <Button onPress={handleSubmit} title="Submit" />

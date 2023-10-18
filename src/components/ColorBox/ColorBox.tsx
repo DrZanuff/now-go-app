@@ -10,8 +10,10 @@ export function ColorBox({
   const style = ColorBoxContainer(colorHex, renderBlackText)
 
   return (
-    <View style={style.BoxContainer}>
-      <Text style={style.TextContainer}>{`${colorName}: ${colorHex}`}</Text>
+    <View style={{ flex: 1, paddingHorizontal: 15 }}>
+      <View style={style.BoxContainer}>
+        <Text style={style.TextContainer}>{`${colorName}: ${colorHex}`}</Text>
+      </View>
     </View>
   )
 }

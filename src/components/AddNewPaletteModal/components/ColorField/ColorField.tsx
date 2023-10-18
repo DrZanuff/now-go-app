@@ -25,8 +25,8 @@ export function ColorField({ value, color, setValue }: ColorFieldProps) {
 
   return (
     <View style={style.ColorFieldContainer}>
-      <Text>{color.colorName}</Text>
       <View style={[style.ColorSquare, { backgroundColor: color.hexCode }]} />
+      <Text>{color.colorName}</Text>
       <Switch
         trackColor={{ false: '#767577', true: color.hexCode }}
         // thumbColor={value ? color.hexCode : '#f4f3f4'}

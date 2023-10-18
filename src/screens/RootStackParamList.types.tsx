@@ -1,6 +1,6 @@
 import { Color } from '../colors/color.types'
 
-type StackRoutes = 'Home' | 'ColorList' | 'Main' | 'AddNewPalette'
+type StackRoutes = 'Home' | 'ColorList' | 'Main' | 'Add New Palette'
 
 export type RootStackParamList = {
   [key in StackRoutes]: key extends 'ColorList'
