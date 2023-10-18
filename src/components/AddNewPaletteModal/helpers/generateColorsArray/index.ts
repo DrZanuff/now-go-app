@@ -1,0 +1,1 @@
+export { generateColorsArray } from './generateColorsArray'
