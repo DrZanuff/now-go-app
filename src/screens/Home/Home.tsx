@@ -1,11 +1,5 @@
 import { useCallback, useState, useEffect } from 'react'
-import {
-  View,
-  FlatList,
-  ActivityIndicator,
-  Text,
-  SafeAreaView,
-} from 'react-native'
+import { View, FlatList, ActivityIndicator, Text } from 'react-native'
 import { ColorMenuOption } from '../../components/ColorMenuOption'
 import { useRecoilState } from 'recoil'
 import { colorPalletesContext } from '../../atoms'
