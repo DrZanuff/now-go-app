@@ -40,7 +40,6 @@ export function AddNewPaletteModal({ navigation }: NavigationProps) {
     setColorPalletes((prev) => {
       const id = prev.length
       return [
-        ...prev,
         {
           id,
           paletteName,
@@ -49,6 +48,7 @@ export function AddNewPaletteModal({ navigation }: NavigationProps) {
             hexCode: newColor.color.hexCode,
           })),
         },
+        ...prev,
       ]
     })
 
